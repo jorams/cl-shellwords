@@ -1,0 +1,13 @@
+language: common-lisp
+
+env:
+  matrix:
+    - LISP=sbcl
+    - LISP=ccl
+
+install:
+  - curl https://raw.githubusercontent.com/luismbo/cl-travis/master/install.sh | bash
+  - sudo apt-get update
+
+script:
+  - cl -e '(uiop:quit (if (asdf:test-system :cl-shellwords) 0 -1))'
