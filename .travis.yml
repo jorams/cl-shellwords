@@ -10,4 +10,5 @@ install:
   - sudo apt-get update
 
 script:
-  - cl -e '(uiop:quit (if (asdf:test-system :cl-shellwords) 0 -1))'
+  - cl -e '(ql:quickload :cl-shellwords-test)'
+       -e '(uiop:quit (if (asdf:test-system :cl-shellwords) 0 -1))'
