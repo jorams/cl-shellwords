@@ -2,8 +2,8 @@
   :description "Tests for cl-shellwords"
   :author "Joram Schrijver <i@joram.io>"
   :license "MIT"
-  :depends-on (#:cl-shellwords #:fiasco)
+  :depends-on (#:cl-shellwords #:prove)
   :components ((:file "test"))
   :perform (test-op :after (op component)
-                    (funcall (intern #.(string :run-package-tests) :fiasco)
-                             :package :cl-shellwords-test)))
+                    (funcall (intern #.(string :run-test-package) :prove)
+                             :cl-shellwords-test)))
