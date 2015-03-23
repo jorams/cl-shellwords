@@ -4,6 +4,10 @@
 
 CL-shellwords is a port of Ruby's shellwords.rb to Common Lisp. It can be used to escape strings for use on the (Bourne) shell, or to split command lines into segments according to the shell's escaping rules.
 
+## Dependencies
+
+CL-shellwords depends only on [CL-PPCRE](http://weitz.de/cl-ppcre/) (BSD). The tests additionally depend on [Prove](https://github.com/fukamachi/prove) (MIT).
+
 ## Documentation
 
 CL-shellwords defines the package `:cl-shellwords`, with the alias `:shellwords`. This package exports three functions, a condition and an accessor for that condition.
