@@ -16,14 +16,10 @@
           do (is (string= part result)))))
 
 (deftest test-split-unmatched ()
-  (is (handler-case
-          (progn (split "test 'string for testing")
-                 nil)
-        (unmatched-quote-error () t)))
-  (is (handler-case
-          (progn (split "'\"'\"\"'\"\"'\"")
-                 nil)
-        (unmatched-quote-error () t))))
+  (signals unmatched-quote-error
+    (split "test 'string for testing"))
+  (signals unmatched-quote-error
+    (split "'\"'\"\"'\"\"'\"")))
 
 (deftest test-escape ()
   (is (string= (escape "") "''"))
@@ -39,8 +35,5 @@
                "This the\\ future\\?"))
   (is (string= (join #("or" "is this" "the past?"))
                "or is\\ this the\\ past\\?"))
-  (is (handler-case
-          (progn (join "This is now.")
-                 nil)
-        (type-error () t))))
+  (signals type-error (join "This is now.")))
 
