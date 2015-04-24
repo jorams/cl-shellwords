@@ -5,5 +5,6 @@
   :depends-on (#:cl-shellwords #:prove)
   :components ((:file "test"))
   :perform (test-op :after (op component)
-                    (funcall (intern #.(string :run-test-package) :prove)
-                             :cl-shellwords-test)))
+             (unless (funcall (intern #.(string :run-test-package) :prove)
+                              :cl-shellwords-test)
+               (error "Tests failed."))))
