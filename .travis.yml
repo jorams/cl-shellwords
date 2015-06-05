@@ -19,7 +19,7 @@ install:
 script:
   - cl -e '(ql:quickload :cl-shellwords-test)'
        -e '(setf *debugger-hook*
-                 (lambda (c h)
-                   (declare (ignore c h))
+                 (lambda (cl-user::c cl-user::h)
+                   (declare (ignore cl-user::c cl-user::h))
                    (uiop:quit -1)))'
        -e '(uiop:quit (if (asdf:test-system :cl-shellwords) 0 -1))'
