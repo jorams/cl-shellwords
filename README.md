@@ -1,6 +1,7 @@
 # cl-shellwords
 
 [![Build Status](https://travis-ci.org/jorams/cl-shellwords.svg)](https://travis-ci.org/jorams/cl-shellwords)
+[![Quicklisp](http://quickdocs.org/badge/cl-shellwords.svg)](http://quickdocs.org/cl-shellwords/)
 
 CL-shellwords is a port of Ruby's shellwords.rb to Common Lisp. It can be used to escape strings for use on the (Bourne) shell, or to split command lines into segments according to the shell's escaping rules.
 
